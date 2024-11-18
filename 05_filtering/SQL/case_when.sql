@@ -15,6 +15,7 @@ SELECT
 		WHEN experience_level = 'MI' THEN 'Mid Level'
 		WHEN experience_level = 'SE' THEN 'Senior'
 		WHEN experience_level = 'EX' THEN 'Expert'
+		ELSE experience_level -- Preserves existing value if there is no match
 	END AS experience_level,
 	* EXCLUDE (experience_level)
 FROM
@@ -35,7 +36,9 @@ SET
 		WHEN experience_level = 'MI' THEN 'Mid Level'
 		WHEN experience_level = 'SE' THEN 'Senior'
 		WHEN experience_level = 'EX' THEN 'Expert'
-	END;
+		ELSE experience_level -- Preserves existing value if there is no match
+	END
+WHERE experience_level IN ('EN', 'MI', 'SE', 'EX');
 	
 -- Kontrollera om jag har transformerat min data?:
 
