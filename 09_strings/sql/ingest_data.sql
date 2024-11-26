@@ -1,5 +1,7 @@
+CREATE SCHEMA IF NOT EXISTS staging;
+
 CREATE TABLE
-    IF NOT EXISTS glossary AS (
+    IF NOT EXISTS staging.glossary AS (
         SELECT
             *
         FROM
