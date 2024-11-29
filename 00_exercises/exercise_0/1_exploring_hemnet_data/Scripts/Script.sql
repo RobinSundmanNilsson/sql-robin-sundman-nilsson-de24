@@ -52,10 +52,10 @@ FROM hemnet_data;
 -- h) Find out statistics on minimum, mean, median and maximum prices of price per area.
 
 SELECT 
-    ROUND(MIN(price_per_area), 0) AS min_price,
-    ROUND(MAX(price_per_area), 0) AS max_price,
-    ROUND(AVG(price_per_area), 0) AS mean_price,
-    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY price_per_area) AS median_price
+    ROUND(MIN(price_per_area), 0) AS min_price_per_area,
+    ROUND(MAX(price_per_area), 0) AS max_price_per_area,
+    ROUND(AVG(price_per_area), 0) AS mean_price_per_area,
+    PERCENTILE_CONT(0.5) WITHIN GROUP (ORDER BY price_per_area) AS median_price_per_area
 FROM hemnet_data;
 
 -- i) How many unique communes are represented in the dataset.
@@ -67,6 +67,10 @@ FROM
 
 -- j) How many percentage of homes cost more than 10 million?
 
-
+SELECT
+	100.0 * COUNT(*) FILTER (
+	WHERE final_price > 10000000) / COUNT(*) AS percent_over_10_million
+FROM
+	hemnet_data;
 
 -- k) Feel free to explore anything else you find interesting in this dataset.
