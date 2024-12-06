@@ -22,7 +22,7 @@ VALUES
 	(4, 'Cactus', 'Succulent'),
 	(5, 'Sunflower', 'Flower');
 
-INSERT INTO main.plant _care (id, plant_id, water_schedule, sunlight) 
+INSERT INTO main.plant_care (id, plant_id, water_schedule, sunlight) 
 VALUES
 	(1, 1, 'Daily', 'Full Sun'),
 	(2, 3, 'Weekly', 'Partial Sun'),
